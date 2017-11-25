@@ -5,6 +5,7 @@
  */
 package com.belajar.belajarspringboot.contoller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HalloController {
+    
+    @GetMapping("/")
+    public String root(){
+        return "ini halaman root";
+    }
     
     @GetMapping("/hallo")
     public String halloWorld(){
