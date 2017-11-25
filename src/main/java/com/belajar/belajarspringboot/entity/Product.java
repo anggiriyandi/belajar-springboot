@@ -6,7 +6,9 @@
 package com.belajar.belajarspringboot.entity;
 
 import java.math.BigDecimal;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 /**
@@ -14,9 +16,12 @@ import javax.persistence.Table;
  * @author anggi
  */
 @Entity
-@Table
+@Table( indexes = {
+    @Index(name = "idx_product_code",columnList = "code")
+})
 public class Product extends BaseEntity{
     
+    @Column(unique = true, nullable = false)
     private String code;
     private String name;
     private int stock;
